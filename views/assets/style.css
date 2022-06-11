@@ -1,0 +1,52 @@
+body a {
+    text-decoration: none;
+}
+
+a.text-dark {
+    padding: 0px 23px;
+}
+
+a.text-dark:hover {
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white !important;
+    font: 20px Georgia, serif;
+    transition: all 0.3s linear 0s;
+}
+
+header #toggel {
+    font-size: 34px;
+    cursor: pointer;
+    width: 44px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 46%);
+    display: none;
+}
+
+@media (max-width: 817.60px) {
+    header #toggel {
+        display: block;
+    }
+    header .menu {
+        position: fixed;
+        top: 0px;
+        right: -485px;
+        width: 50%;
+        gap: 46px;
+        display: flex;
+        flex-direction: column;
+        background-color: #ededed;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        border-radius: 10px;
+        padding-bottom: 20px;
+        z-index: 1;
+    }
+    header #menu:checked+.menu {
+        right: 0px;
+        transition: 0.8s;
+    }
+    header .menu a {
+        border-bottom: rgb(0, 0, 0) solid 1px;
+        height: 34px;
+    }
+}
