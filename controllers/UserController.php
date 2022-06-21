@@ -45,17 +45,14 @@ class UserController
 
             $email = $this->Checkinput($_POST['email']); 
             $log = User::login($email);
-            $password =$_POST['password'];
+            $password =$this->Checkinput($_POST['password']);
             if (password_verify($password, $log["password"])) 
             {
-
-                // $log = User::login($email);
-                // $row = $log->rowCount();
-                // $fetch = $log;
-                // if ($row == 1) {
                 $_SESSION['user'] = $log['prenom'];
                 Redirect::to('index');
-            }   else $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';    
+            }   
+            else
+             $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';    
        }
     }
  
