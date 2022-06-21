@@ -18,8 +18,8 @@
             return $sql;
         }
 
-        public static function login($email){
-            $log=self::connections()->query("SELECT * FROM users WHERE email='$email'")->fetch(PDO::FETCH_ASSOC);
+        public static function login($email,$password){
+            $log=self::connections()->query("SELECT * FROM users WHERE email='$email' and password='$password'");
             return $log;
         }
 
