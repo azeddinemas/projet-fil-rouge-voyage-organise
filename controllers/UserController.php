@@ -45,8 +45,8 @@ class UserController
 
             $email = $this->Checkinput($_POST['email']); 
             $log = User::login($email);
-            $password = $this->Checkinput($_POST['password']);
-            if (password_verify($password, $log['password'])) 
+            $password =$_POST['password'];
+            if (password_verify($password, $log["password"])) 
             {
 
                 // $log = User::login($email);

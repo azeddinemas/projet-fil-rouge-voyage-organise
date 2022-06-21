@@ -19,7 +19,7 @@
         }
 
         public static function login($email){
-            $log=self::connections()->query("SELECT * FROM users WHERE email='$email'")->fetchAll(PDO::FETCH_ASSOC);
+            $log=self::connections()->query("SELECT * FROM users WHERE email='$email'")->fetch(PDO::FETCH_ASSOC);
             return $log;
         }
 
