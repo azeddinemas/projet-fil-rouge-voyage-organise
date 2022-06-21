@@ -8,17 +8,17 @@
 <?php include 'views/includs/navbar.php';?>
 <main class="log">
     <a href="<?php echo BASE_URL; ?>index" class="btn btn-sm btn-secondary m-2"><i class="fas fa-home"></i></a>
-    <div class="text-center"><?php include 'views/includs/alerts.php';?></div>
     <section class="container mt-3 py-2">
         <form method="POST">
             <h1 class="titre m-2 border-start border-3 border-white ps-4 text-white" data-aos="fade-down">Voyageon</h1>
             <hr>
             <h2 class="text-center">Sign In</h2>
-            
+            <div class="text-center"><?php include 'views/includs/alerts.php';?></div>
+            <?= $_COOKIE['password'] ?? ''?>
             <p class="text-center mb-4">Enter your credentials to access your account</p>
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter your email" >
+                <input type="email" name="email" value="<?= $_POST['email'] ?? ''?>" class="form-control" placeholder="Enter your email" >
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
