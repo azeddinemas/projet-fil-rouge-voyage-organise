@@ -40,7 +40,8 @@ class UserController
 
     public function auth()
     {
-        if (isset($_POST['submit'])) {
+        if (isset($_POST['submit']))
+        {
 
             $email = $this->Checkinput($_POST['email']); 
             $log = User::login($email);
@@ -48,20 +49,16 @@ class UserController
             if (password_verify($password, $log['password'])) 
             {
 
-                $log = User::login($email);
-                $row = $log->rowCount();
-                $fetch = $log->fetch();
-                if ($row == 1) {
-                $_SESSION['user'] = $fetch['prenom'];
+                // $log = User::login($email);
+                // $row = $log->rowCount();
+                // $fetch = $log;
+                // if ($row == 1) {
+                $_SESSION['user'] = $log['prenom'];
                 Redirect::to('index');
-            }   
-             
-                
-            } else
-                $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';
-        
+            }   else $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';    
+       }
     }
-    }
+ 
 
     public function getOneUser()
     {
