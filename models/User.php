@@ -4,10 +4,8 @@
         public $id;
         public $nom;
         public $prenom;
-        public $cin;
         public $email;
         public $adresse;
-        public $role;
 
 
         public static function getAll(){
@@ -15,9 +13,14 @@
             return $sql->fetchAll();
         }
 
-        public static function add($nom,$prenom,$email,$adresse,$cin,$role){
-            $sql=self::connections()->query("INSERT INTO users values('','$nom' , '$prenom','$email','$adresse','$cin','$role')");
+        public static function creatUser($nom,$prenom,$email,$password){
+            $sql=self::connections()->query("INSERT INTO users values('','$nom' , '$prenom','$email','$password')");
             return $sql;
+        }
+
+        public static function login($email,$password){
+            $log=self::connections()->query("SELECT * FROM users WHERE email='$email' && password='$password'");
+            return $log;
         }
 
         public static function getOne($id){
@@ -26,8 +29,8 @@
 
         }
 
-        public static function update($nom,$prenom,$email,$adresse,$cin,$role,$id){
-            $sql=self::connections()->query("UPDATE users SET nom='$nom',prenom='$prenom',email='$email',adresse='$adresse',cin='$cin',role='$role' WHERE id='$id'");
+        public static function update($nom,$prenom,$email,$password,$id){
+            $sql=self::connections()->query("UPDATE users SET nom='$nom',prenom='$prenom',email='$email',password='$password' WHERE id='$id'");
             return $sql;
         }
 
@@ -35,6 +38,7 @@
             $sql=self::connections()->query("DELETE FROM `users` WHERE id='$id'"); 
             return $sql;
         }
+        
 
     }
 

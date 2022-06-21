@@ -1,26 +1,16 @@
-
+<?php
+    // if (isset($_SESSION['user'])) {
+    //     Redirect::to('index');
+    // }
+    $data = new ProductController();
+    $products = $data->getAllProduit();
+?>
 <main style="background-color: #eee;">
-
-    <header class="d-flex justify-content-between bg-white shadow-lg p-2">
-        <nav class="container-fluid d-flex align-items-center justify-content-between">
-            <div>
-                <a href=""><img src="views\assets\img\LogoTravel.png" width="85px"></a>
-            </div>
-            <label for="menu" id="toggel">&#9776;</label>
-            <input type="checkbox" class="d-none" id="menu">
-            <div class="menu text-center" data-aos="fade-left">
-                <label for="menu" id="toggel"><i class="bi bi-x-lg"></i></label>
-                <a href="#home" class="text-dark">home</a>
-                <a href="#packages" class="text-dark">packages</a>
-                <a href="#show" class="text-dark">show</a>
-                <a href="#services" class="text-dark">services</a>
-                <a href="#review" class="text-dark">review</a>
-                <a href="#contact" class="text-dark">contact</a>
-                <a href="#" class="btn rounded-3 text-white border-bottom-0" style="background-color: #F79F1F;">LOG IN</a>
-            </div>
-        </nav>
-    </header>
+    <?php include 'views/includs/navbar.php'; ?>
     <main id="home">
+        <div class="col-4 text-center mx-auto mt-5">
+            <?php include 'views/includs/alerts.php'; ?>
+        </div>
         <div class="container-lg mb-3">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-sm-12 text-center" data-aos="fade-down">
@@ -30,87 +20,38 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-up">
                     <h1 style="color: #F79F1F;">Hello!</h1>
-                    <div class="">
+                    <a href="<?php BASE_URL?>logoutuser" data-bs-toggle="tooltip" data-bs-placement="buttom" title="logout"><h2><?= $_SESSION['user'] ?? ''?></h2></a>
+                    <div>
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, minima architecto illum nam, temporibus quia qui eum enim quasi dignissimos quas iste alias eos dolore atque nihil repellat culpa officia!</h3>
-                        <a href="#" class="btn text-white mt-3" style="background: #F79F1F;">Login here</a>
+                        <a href="<?php BASE_URL ?>login" class="btn text-white mt-3" style="background: #F79F1F;">Login here</a>
                     </div>
                     <hr>
                 </div>
             </div>
         </div>
     </main>
-    <div class="mt-4" id="packages" data-aos="zoom-in">
+    <div class="mt-4" id="packages">
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">our <span>Packages</span></h1>
         <div class="container-fluid row mt-3 p-3 mx-auto">
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
-                <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;">
-                    <img src="views\assets\img\card.jpeg" class="card-img-top rounded-4">
-                    <p class="position-absolute ms-2 mt-1 text-white bg-black bg-opacity-50 p-1 rounded-3 fs-5"><i class="fas fa-map-marker-alt fs-3 align-middle text-warning"></i> marrakech</p>
-                    <div class="card-body">
-                        <h5 class="card-title fs-3">290.99 &nbsp;<span class="text-decoration-line-through text-secondary fs-5 fw-lighter">400.99</span></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn text-white text-nowrap" style="background-color: #F79F1F;">Go somewhere</a>
+            <?php foreach ($products as $product) { ?>
+                <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
+                    <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;max-height: 500px;">
+                        <img src="views/assets/img/<?= $product[5] ?>" class="card-img-top rounded-3" style="height: 220px;">
+                        <p class="position-absolute ms-2 mt-1 text-white bg-black bg-opacity-50 p-1 rounded-3 fs-5"><i class="fas fa-map-marker-alt fs-3 align-middle text-warning"></i><?= $product[1];?></p>
+                        <div class="card-body">
+                            <h5 class="card-title fs-3"><?= $product[2] ?>&nbsp;<span class="text-decoration-line-through text-secondary fs-5 fw-lighter"><?= $product[3] ?></span></h5>
+                            <p class="card-text"><?= $product[4] ?></p>
+                            <form method="POST" action="<?php BASE_URL?>addreserve">
+                                <input type="hidden" name="reserve" value="<?= $product[1]?>">
+                                <button type="submit" name="addreservation" style="background: #F79F1F;" class="btn text-white">go somewhere</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
-                <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;">
-                    <img src="views\assets\img\card1.jpeg" class="card-img-top rounded">
-                    <p class="position-absolute ms-2 mt-1 text-white bg-black bg-opacity-50 p-1 rounded-3 fs-5"><i class="fas fa-map-marker-alt fs-3 align-middle text-warning"></i> Essaouira</p>
-                    <div class="card-body">
-                        <h5 class="card-title fs-3">290.99 &nbsp;<span class="text-decoration-line-through text-secondary fs-5 fw-lighter">400.99</span></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn text-white text-nowrap" style="background-color: #F79F1F;">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
-                <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;">
-                    <img src="views\assets\img\cardd.jpg" class="card-img-top rounded">
-                    <p class="position-absolute ms-2 mt-1 text-white bg-black bg-opacity-50 p-1 rounded-3 fs-5"><i class="fas fa-map-marker-alt fs-3 align-middle text-warning"></i> Paris</p>
-                    <div class="card-body">
-                        <h5 class="card-title fs-3">290.99 &nbsp;<span class="text-decoration-line-through text-secondary fs-5 fw-lighter">400.99</span></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn text-white text-nowrap" style="background-color: #F79F1F;">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
-                <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;">
-                    <img src="views\assets\img\p-1.jpg" class="card-img-top rounded">
-                    <p class="position-absolute ms-2 mt-1 text-white bg-black bg-opacity-50 p-1 rounded-3 fs-5"><i class="fas fa-map-marker-alt fs-3 align-middle text-warning"></i> wanir</p>
-                    <div class="card-body">
-                        <h5 class="card-title fs-3">290.99 &nbsp;<span class="text-decoration-line-through text-secondary fs-5 fw-lighter">400.99</span></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn text-white text-nowrap" style="background-color: #F79F1F;">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
-                <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;">
-                    <img src="views\assets\img\p-5.jpg" class="card-img-top rounded">
-                    <p class="position-absolute ms-2 mt-1 text-white bg-black bg-opacity-50 p-1 rounded-3 fs-5"><i class="fas fa-map-marker-alt fs-3 align-middle text-warning"></i> okaimden</p>
-                    <div class="card-body">
-                        <h5 class="card-title fs-3">290.99 &nbsp;<span class="text-decoration-line-through text-secondary fs-5 fw-lighter">400.99</span></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn text-white text-nowrap" style="background-color: #F79F1F;">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
-                <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;">
-                    <img src="views\assets\img\p-4.jpg" class="card-img-top rounded">
-                    <p class="position-absolute ms-2 mt-1 text-white bg-black bg-opacity-50 p-1 rounded-3 fs-5"><i class="fas fa-map-marker-alt fs-3 align-middle text-warning"></i> Ourika</p>
-                    <div class="card-body">
-                        <h5 class="card-title fs-3">290.99 &nbsp;<span class="text-decoration-line-through text-secondary fs-5 fw-lighter">400.99</span></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn text-white text-nowrap" style="background-color: #F79F1F;">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
-    <div class="container mt-4" id="show" data-aos="zoom-in">
+    <div class="container mt-4" id="show">
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">our <span>show</span></h1>
         <div class="overflow-auto mt-3" data-aos="zoom-in">
             <div class="col-10 d-flex gap-2">
@@ -120,7 +61,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-4" id="services" data-aos="zoom-in">
+    <div class="mt-4" id="services">
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">our <span>Services</span></h1>
         <div class="container-fluid row p-3 mx-auto">
             <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in">
@@ -197,7 +138,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-4" id="review" data-aos="zoom-in">
+    <div class="container-fluid mt-4" id="review">
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">Client's Review</h1>
         <div class="p-3" data-aos="zoom-in">
             <div class="d-flex overflow-auto gap-5">
@@ -216,7 +157,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-4" id="contact" data-aos="zoom-in">
+    <div class="container mt-4" id="contact">
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">Contact <span>Us</span></h1>
         <div class="col-8 mx-auto p-3">
             <form>
@@ -257,9 +198,7 @@
             </section>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2022 Copyright:
-            <a class="text-white" href="#">MDBootstrap.com</a>
+            © 2022 Copyright
         </div>
     </footer>
-    
 </main>

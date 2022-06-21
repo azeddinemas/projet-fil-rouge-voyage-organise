@@ -4,7 +4,7 @@
     require_once('controllers/HomeController.php');
 
     $home = new HomeController();
-    $pages=['home','index','add','update','delete'];
+    $pages=['admin','dashboard','index','client','payment','voyage','reservation','login','signup','addvoyage','updatevoyage','updateuser','deletevoyage','deleteuser','addreserve','updatereserv','deletereserv','logoutadmin','logoutuser'];
 
     if (isset($_GET['page'])) {
         if (in_array($_GET['page'],$pages)) {
@@ -12,9 +12,8 @@
             $home->index($page);
         }else
             include('views/includs/404.php');
-    }else
-        $home->index('home');
-?>
-<?php 
+        }else{
+            $home->index('index');}
+
     require_once './views/includs/footer.php';
 ?>

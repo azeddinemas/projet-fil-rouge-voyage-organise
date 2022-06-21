@@ -1,17 +1,52 @@
 <?php
 
-    class UserController{
+    class UserController {
 
         public function getAllUsers(){
             $users= User::getAll();
             return $users;
         }
 
-        public function addUser(){
+        public function Register(){
             if (isset($_POST['submit'])) {
-                user::add($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['adresse'],$_POST['cin'],$_POST['role']);
-                Redirect::to('home');
+                $nom = $this->Checkinput($_POST['nom']);
+                $prenom = $this->Checkinput($_POST['prenom']);
+                $email = $this->Checkinput($_POST['email']);
+                $password = $this->Checkinput($_POST['password']);
+                $config = $this->Checkinput($_POST['config']);
+                $config = hash('ripemd160',$config);
+                $password = hash('ripemd160',$password);
+
+                if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($password)) {
+                    if ($password == $config) {
+                    
+                        $result=user::creatUser($nom,$prenom,$email, $password);
+                        if ($result) {
+                            Session::set('success','Compte Crée');
+                            Redirect::to('login');
+                        }else 
+                        echo $result;
+
+                    }else $_COOKIE['password']='<div class="alert alert-danger">password incorrect</div>';
+
+                }else $_COOKIE['vide']='<div class="alert alert-danger">tout les champe obligé</div>';
+                
             }
+        }
+
+        public function auth(){
+            if (isset($_POST['submit'])) {
+
+                $log = User::login($_POST['email'],$_POST['password']);
+                $fetch = $log->fetch();
+                $row = $log->rowCount();
+                if ($row == 1) {
+                    $_SESSION['user'] = $fetch['prenom'];
+                    Redirect::to('index');
+                }else
+                    Session::set('error','email or password incorrect');
+            }
+            
         }
 
         public function getOneUser(){
@@ -23,16 +58,42 @@
 
         public function updateUser(){
             if (isset($_POST['submit'])) {
-                User::update($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['adresse'],$_POST['cin'],$_POST['role'],$_POST['id']); 
-                Redirect::to('home');
+             
+                $result=User::update($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['password'],$_POST['id']);
+                if ($result) {
+                    Session::set('success','User Modifié');
+                    Redirect::to('client');
+                }else 
+                    echo $result;
             }
         }
 
         public function deleteUser(){
             if (isset($_POST['id'])) {
-                user::delete($_POST['id']); 
-                Redirect::to('home');
+                $result=user::delete($_POST['id']);
+                if ($result) {
+                    Session::set('success','User supprimé');
+                    Redirect::to('client');
+                }else 
+                    echo $result;
             }
         }
+
+        public static function logout(){
+            session_destroy();
+        }
+
+        public function Checkinput($data){
+
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+
+
+
     }
+
+
 ?>

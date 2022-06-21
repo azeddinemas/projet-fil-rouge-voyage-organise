@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F79F1F;
+    border-radius: 30px;
+}
+
+
+/* :start client */
+
 body a {
     text-decoration: none;
 }
@@ -7,7 +20,7 @@ a.text-dark {
 }
 
 a.text-dark:hover {
-    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em #00abdc;
     color: white !important;
     font: 20px Georgia, serif;
     transition: all 0.3s linear 0s;
@@ -39,14 +52,67 @@ header #toggel {
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
         border-radius: 10px;
         padding-bottom: 20px;
+        transition: 0.8s;
         z-index: 1;
     }
     header #menu:checked+.menu {
         right: 0px;
-        transition: 0.8s;
     }
     header .menu a {
         border-bottom: rgb(0, 0, 0) solid 1px;
         height: 34px;
     }
 }
+
+
+/* :end client */
+
+
+/* start sidebar */
+
+a.nav-link.text-black:hover {
+    background-color: #00C1FE;
+    border-radius: 8px;
+}
+
+#menu {
+    display: none;
+}
+
+#label {
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 46%);
+    display: none;
+}
+
+@media (max-width:991px) {
+    .container-fluid #sid {
+        margin-left: -760px;
+        position: absolute;
+        transition: 0.8s;
+        z-index: 1;
+    }
+    .container-fluid #menu:checked+#sid {
+        margin-left: 0px;
+    }
+    #label {
+        display: block;
+    }
+}
+
+
+/* end sidebar */
+
+
+/* start log */
+
+.log .container {
+    max-width: 400px;
+    /* background: linear-gradient(45deg, #F79F1F, transparent); */
+    background: linear-gradient(180deg, #F79F1F, #FFCD38);
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px #838383;
+}
+
+
+/* start log */
