@@ -21,8 +21,8 @@ class UserController
             $config = $this->Checkinput($_POST['config']);
             if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($password)) {
                 if ($password == $config) {
-                    // $passwordh = password_hash($password,PASSWORD_DEFAULT);
-                    $result = user::creatUser($nom, $prenom, $email, $password);
+                   $passwordhash = password_hash($password, PASSWORD_ARGON2I);
+                    $result = user::creatUser($nom, $prenom, $email, $passwordhash);
                     if ($result) {
                         Session::set('success', 'Compte Crée');
                         Redirect::to('login');
@@ -41,28 +41,18 @@ class UserController
     public function auth()
     {
         if (isset($_POST['submit'])) {
-            // $password = hash(md5($_POST['password']),$_POST['password']);
 
-            $password = $this->Checkinput($_POST['password']); 
-            // $passwordh = password_hash($password,PASSWORD_DEFAULT);
-            $log = User::login($_POST['email'], $password);
+            $email = $this->Checkinput($_POST['email']); 
+            $password = $this->Checkinput($_POST['password']);
+         
+            $passwordh = sha1($password);
+
+            $log = User::login($email, $passwordh);
             $row = $log->rowCount();
-           
+            $fetch = $log->fetch();
             if ($row == 1) {
-                $fetch = $log->fetch();
+                $_SESSION['user'] = $fetch['prenom'];
                 Redirect::to('index');
-                echo 'nasid';
-              
-                // if(password_verify($password,$fetch['password'])){
-                //     // $_SESSION['user'] = $fetch['prenom'];
-                //     // 
-                //     echo "Password verified";
-                //     exit;
-                // }
-                // else{
-                //     echo "Wrong Password";
-                //     exit;
-                // }
                 
             } else
                 $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';
