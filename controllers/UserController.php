@@ -21,7 +21,7 @@ class UserController
             $config = $this->Checkinput($_POST['config']);
             if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($password)) {
                 if ($password == $config) {
-                   $passwordhash = password_hash($password, PASSWORD_ARGON2I);
+                   $passwordhash = password_hash($password,PASSWORD_DEFAULT);
                     $result = user::creatUser($nom, $prenom, $email, $passwordhash);
                     if ($result) {
                         Session::set('success', 'Compte Crée');
@@ -43,20 +43,24 @@ class UserController
         if (isset($_POST['submit'])) {
 
             $email = $this->Checkinput($_POST['email']); 
+            $log = User::login($email);
             $password = $this->Checkinput($_POST['password']);
-         
-            $passwordh = sha1($password);
+            if (password_verify($password, $log['password'])) 
+            {
 
-            $log = User::login($email, $passwordh);
-            $row = $log->rowCount();
-            $fetch = $log->fetch();
-            if ($row == 1) {
+                $log = User::login($email);
+                $row = $log->rowCount();
+                $fetch = $log->fetch();
+                if ($row == 1) {
                 $_SESSION['user'] = $fetch['prenom'];
                 Redirect::to('index');
+            }   
+             
                 
             } else
                 $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';
-        }
+        
+    }
     }
 
     public function getOneUser()
