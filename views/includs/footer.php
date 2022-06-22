@@ -7,5 +7,6 @@
         });
     </script>
     <script src="views/assets/js/delete.js"></script>
+    <script src="views/assets/js/validation.js"></script>
 </body>
 </html>

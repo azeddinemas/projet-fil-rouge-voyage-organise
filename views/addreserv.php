@@ -12,31 +12,36 @@
                 <div class="card-header">ADD NEW reservation</div>
                 <div class="card-body bg-light">
                     <a href="<?php echo BASE_URL; ?>reservation" class="btn btn-sm btn-info m-2"><i class="fas fa-home text-white"></i></a>
-                    <form method="POST" enctype="multipart/form-data">
+                    <form method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="">voyage</label>
-                            <input type="text" name="voyage" placeholder="voyage" class="form-control">
+                            <input type="text" name="voyage" placeholder="voyage" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a name.</div>
                         </div>
                         <div class="form-group">
                             <label for="">nom</label>
-                            <input type="text" name="nom" placeholder="nom" class="form-control">
+                            <input type="text" name="nom" placeholder="nom" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a name.</div>
                         </div>
                         <div class="form-group">
                             <label for="">prenom</label>
-                            <input type="text" name="prenom" placeholder="prenom" class="form-control">
+                            <input type="text" name="prenom" placeholder="prenom" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a name.</div>
                         </div>
                         <div class="form-group">
                             <label for="">Phone</label>
-                            <input type="tel" name="phone" placeholder="phone" class="form-control">
+                            <input type="tel" name="phone" placeholder="phone" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a name.</div>
                         </div>
                         <div class="form-group">
                             <label for="">Ville</label>
-                            <input type="text" name="ville" placeholder="ville" class="form-control">
+                            <input type="text" name="ville" placeholder="ville" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a name.</div>
                         </div>
                         <div class="form-group">
                             <label for="">Adresse</label>
-                            <textarea name="adresse" rows="3" class="form-control" placeholder="Adresse"></textarea>
-                        </div>
+                            <textarea name="adresse" rows="3" class="form-control" placeholder="Adresse" required></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea.</div>
                         <div class="form-group mt-2">
                             <button type="submit" name="submit" class="btn btn-outline-dark">Réservé</button>
                         </div>

@@ -19,30 +19,36 @@
                 <div class="card-body bg-light">
                     <a href="<?php echo BASE_URL; ?>index" class="btn btn-sm btn-secondary m-2"><i class="fas fa-home"></i></a>
                     <?= $_COOKIE['reserve'] ?? ''?>
-                    <form method="POST" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                         <div class="form-group">
                             <label for="">voyage</label>
-                            <input type="text" name="voyage" placeholder="localisation" value="<?= $_POST['reserve']?? ''?>" class="form-control">
+                            <input type="text" name="voyage" placeholder="localisation" value="<?= $_POST['reserve']?? ''?>" class="form-control" required>
+                            <div class="valid-feedback">Looks good!</div>
                         </div>
                         <div class="form-group">
-                            <label for="">nom</label>
-                            <input type="text" name="nom" placeholder="nom" class="form-control">
+                            <label for="">lastname</label>
+                            <input type="text" name="nom" placeholder="nom" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a last name.</div>
                         </div>
                         <div class="form-group">
-                            <label for="">prenom</label>
-                            <input type="text" name="prenom" placeholder="prenom" class="form-control">
+                            <label for="">first name</label>
+                            <input type="text" name="prenom" placeholder="prenom" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a first name.</div>
                         </div>
                         <div class="form-group">
                             <label for="">Phone</label>
-                            <input type="tel" name="phone" placeholder="phone" class="form-control">
+                            <input type="tel" name="phone" placeholder="phone" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a phone.</div>
                         </div>
                         <div class="form-group">
                             <label for="">Ville</label>
-                            <input type="text" name="ville" placeholder="ville" class="form-control">
+                            <input type="text" name="ville" placeholder="ville" class="form-control" required>
+                            <div class="invalid-feedback">Please choose a ville.</div>
                         </div>
                         <div class="form-group">
                             <label for="">Adresse</label>
-                            <textarea name="adresse" rows="3" class="form-control" placeholder="Adresse"></textarea>
+                            <textarea name="adresse" rows="3" class="form-control" placeholder="Adresse" required></textarea>
+                            <div class="invalid-feedback"> Please enter a message in the textarea.</div>
                         </div>
                         <div class="form-group mt-2">
                             <button type="submit" name="submit" class="btn btn-outline-dark">Réservé</button>

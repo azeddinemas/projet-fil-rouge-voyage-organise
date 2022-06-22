@@ -108,11 +108,10 @@ a.nav-link.text-black:hover {
 
 .log .container {
     max-width: 400px;
-    /* background: linear-gradient(45deg, #F79F1F, transparent); */
     background: linear-gradient(180deg, #F79F1F, #FFCD38);
     border-radius: 20px;
     box-shadow: 10px 10px 30px #838383;
 }
 
 
-/* start log */
+/* end log */

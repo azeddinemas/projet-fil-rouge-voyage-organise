@@ -143,7 +143,7 @@
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">Client's Review</h1>
         <div class="p-3" data-aos="zoom-in">
             <div class="d-flex overflow-auto gap-5">
-                <div class="col-11 mx-auto shadow-lg p-3 mb-5 bg-body rounded-4">
+                <div class="col-11 mx-auto shadow-lg p-3 mb-5 bg-body rounded-3">
                     <img src="views\assets\img\pic-1.png" class="rounded-circle mx-auto d-block" style="width: 100px;">
                     <p class="mt-5 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga incidunt consequatur reprehenderit quo nulla eaque vitae facilis nemo ipsa corporis harum voluptatum nostrum molestias, aspernatur, nihil dolor eveniet quis aut.</p>
                 </div>
