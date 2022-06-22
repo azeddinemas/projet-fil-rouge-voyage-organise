@@ -18,6 +18,7 @@
                 <div class="card-header">Ajouté votre reservation</div>
                 <div class="card-body bg-light">
                     <a href="<?php echo BASE_URL; ?>index" class="btn btn-sm btn-secondary m-2"><i class="fas fa-home"></i></a>
+                    <?= $_COOKIE['reserve'] ?? ''?>
                     <form method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="">voyage</label>

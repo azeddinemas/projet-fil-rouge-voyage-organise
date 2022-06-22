@@ -109,7 +109,6 @@ class UserController
 
     public function Checkinput($data)
     {
-
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
