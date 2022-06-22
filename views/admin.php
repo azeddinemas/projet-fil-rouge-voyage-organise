@@ -3,6 +3,7 @@ if (isset($_POST['submit'])) {
     $obj = new adminController();
     $obj->auth();
 }
+
 if (isset($_SESSION['admin'])) {
     Redirect::to('dashboard');
 }
@@ -24,7 +25,7 @@ if (isset($_SESSION['admin'])) {
             <input type="password" name="password" class="form-control" placeholder="Enter your password">
         </div>
         <div class="mb-3">
-            <input type="checkbox" name="remember">
+            <input type="checkbox" id="d" name="remember">
             <label for="d">remembre me</label>
         </div>
         <div class="d-grid mb-4">

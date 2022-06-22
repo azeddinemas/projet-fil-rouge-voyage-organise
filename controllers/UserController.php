@@ -3,7 +3,6 @@
 class UserController
 {
 
-
     public function getAllUsers()
     {
         $users = User::getAll();
@@ -20,17 +19,21 @@ class UserController
             $password = $this->Checkinput($_POST['password']);
             $config = $this->Checkinput($_POST['config']);
             if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($password)) {
-                if ($password == $config) {
-                   $passwordhash = sha1($password);
-                    $result = user::creatUser($nom, $prenom, $email, $passwordhash);
-                    if ($result) {
-                        Session::set('success', 'Compte Crée');
-                        Redirect::to('login');
-                    } else
-                        echo $result;
-                    
-                }else
-                    $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';
+                $row = User::getEmail($email);
+                if ($row == 0) {
+                    if ($password == $config) {
+                        $passwordhash = sha1($password);
+                         $result = user::creatUser($nom, $prenom, $email, $passwordhash);
+                         if ($result) {
+                             Session::set('success', 'Compte Crée');
+                             Redirect::to('login');
+                         } else
+                             echo $result;
+                         
+                     }else
+                         $_COOKIE['fake'] = '<div class="alert alert-danger">password incorrect</div>';
+                }else 
+                    $_COOKIE['mail'] = '<div class="alert alert-danger">changer your email</div>';
 
             }else 
                 $_COOKIE['vide'] = '<div class="alert alert-danger">tout les champe obligé</div>';
@@ -55,7 +58,7 @@ class UserController
                 Redirect::to('index');
                 
             } else
-                $_COOKIE['password'] = '<div class="alert alert-danger">password incorrect</div>';
+                $_COOKIE['fake'] = '<div class="alert alert-danger">password incorrect</div>';
         }
     }
 
@@ -95,6 +98,13 @@ class UserController
     public static function logout()
     {
         session_destroy();
+    }
+
+    public static function remember(){
+        if (isset($_POST['remember'])) {
+            setcookie('password',$_POST['password'],time() + 3600,'/');
+            setcookie('email',$_POST['email'],time() + 3600,'/');
+        }
     }
 
     public function Checkinput($data)

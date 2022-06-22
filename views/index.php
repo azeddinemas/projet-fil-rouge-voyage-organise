@@ -1,7 +1,8 @@
 <?php
-    // if (isset($_SESSION['user'])) {
-    //     Redirect::to('index');
-    // }
+    
+    $obj = new contactController();
+    $obj->addContact();
+    
     $data = new ProductController();
     $products = $data->getAllProduit();
 ?>
@@ -160,13 +161,13 @@
     <div class="container mt-4" id="contact">
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">Contact <span>Us</span></h1>
         <div class="col-8 mx-auto p-3">
-            <form>
+            <form method="POST">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 mt-3" data-aos="fade-up">
-                        <input type="text" placeholder="Entrer votre name" class="form-control shadow">
+                        <input type="text" name="nom" placeholder="Entrer votre name" class="form-control shadow">
                     </div>
                     <div class="mt-3 col" data-aos="fade-up">
-                        <input type="email" placeholder="E-mail" class="form-control shadow">
+                        <input type="email" name="email" placeholder="E-mail" class="form-control shadow">
                     </div>
                 </div>
                 <div class="row">
@@ -174,14 +175,14 @@
                         <input type="text" placeholder="Entrer votre number" class="form-control shadow">
                     </div>
                     <div class="mt-3 col" data-aos="fade-up">
-                        <input type="email" placeholder="Subject" class="form-control shadow">
+                        <input type="text" name="subject" placeholder="Subject" class="form-control shadow">
                     </div>
                 </div>
                 <div class="my-3" data-aos="fade-up">
-                    <textarea name="adresse" rows="9" placeholder="your message" class="form-control shadow"></textarea>
+                    <textarea name="message" rows="9" placeholder="your message" class="form-control shadow"></textarea>
                 </div>
                 <div class="text-center my-5">
-                    <button type="submit" class="btn text-white shadow text-nowrap " style="background-color: #F79F1F;">send message</button>
+                    <button type="submit" class="btn text-white shadow text-nowrap" name="submit" style="background-color: #F79F1F;">send message</button>
                 </div>
             </form>
         </div>
@@ -198,7 +199,7 @@
             </section>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2022 Copyright
+            © 2022 Copyright : AZEDDINE MASLOUH
         </div>
     </footer>
 </main>

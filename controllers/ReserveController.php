@@ -12,7 +12,7 @@
                 $result=Reserve::add($_POST['voyage'],$_POST['nom'],$_POST['prenom'],$_POST['phone'],$_POST['ville'],$_POST['adresse']);
                 if ($result) {
                     Session::set('success','votre reservation Ajouté');
-                    Redirect::to('index');
+                    Redirect::to('reservation');
                 }else 
                 echo $result;
             }

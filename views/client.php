@@ -24,7 +24,6 @@
                                     <th scope="col">nom</th>
                                     <th scope="col">prenom</th>
                                     <th scope="col">email</th>
-                                    <th scope="col">password</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
@@ -32,12 +31,11 @@
                                 <tr class="align-middle">
                                     <th scope="row"><?php echo $user['nom']?></th>
                                     <td><?php echo $user['prenom']?></td>
-                                    <td><?php echo $user['email']?></td>
-                                    <td class="text-nowrap"><?php echo $user['password']?></td>  
+                                    <td><?php echo $user['email']?></td> 
                                     <td class="d-flex flex-row justify-content-end">
                                         <form method="POST" action="<?php BASE_URL?>deleteuser" class="m-1">
                                             <input type="hidden" name="id" value="<?php echo $user['id']?>">
-                                            <button  class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            <button onclick="return deleterow()" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
                                         </form>
                                         <form method="POST" action="<?php BASE_URL?>updateuser" class="m-1">
                                             <input type="hidden" name="id" value="<?=$user['id']?>">
@@ -50,7 +48,6 @@
                         </table>
                     </div>
                 </div>
-                <!--end student-->
             </div>
         </div>
     </div>

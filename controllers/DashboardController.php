@@ -16,6 +16,11 @@
             return $row;
         }
 
+        public function rowContact(){
+            $row = Dashboard::getContact();
+            return $row;
+        }
+
     }
     
 ?>

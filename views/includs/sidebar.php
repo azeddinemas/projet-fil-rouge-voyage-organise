@@ -23,8 +23,8 @@
                     <i class="bi bi-bookmark fs-5 me-2"></i>&nbsp;Users
                 </a>
                 <br>
-                <a class="nav-link text-black <?php if(basename($_SERVER["REQUEST_URI"]) == "payment") echo 'bg-info rounded-pill';?>" href="<?php BASE_URL;?>payment">
-                    <i class="bi bi-currency-dollar fs-5 me-E"></i>&nbsp;Payment
+                <a class="nav-link text-black <?php if(basename($_SERVER["REQUEST_URI"]) == "contact") echo 'bg-info rounded-pill';?>" href="<?php BASE_URL;?>contact">
+                    <i class="bi bi-envelope-open fs-5 me-E"></i>&nbsp;&nbsp; Contact
                 </a>
                 <br>
                 <a class="nav-link text-black <?php if(basename($_SERVER["REQUEST_URI"]) == "voyage") echo 'bg-info rounded-pill';?>" href="<?php BASE_URL;?>voyage">

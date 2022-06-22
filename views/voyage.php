@@ -46,7 +46,7 @@
                                             </form>
                                             <form method="POST" action="<?php BASE_URL?>deletevoyage" class="m-1">
                                                 <input type="hidden" name="id" value="<?php echo $product[0]?>">
-                                                <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                                <button class="btn btn-outline-danger" onclick="return deleterow()"><i class="fas fa-trash"></i></button>
                                             </form>
                                         </div>
                                     </td>

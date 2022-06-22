@@ -14,7 +14,7 @@
         <form method="POST">
             <h1 class="titre m-3 border-start border-3 border-white ps-4 text-white">Voyageon</h1>
             <h2 class="text-center mt-5">Sign Up</h2>
-            <?= $_COOKIE['vide'] ?? $_COOKIE['password'] ?? ''?>
+            <?= $_COOKIE['vide'] ?? $_COOKIE['fake'] ?? $_COOKIE['mail'] ??''?>
             <p class="text-center mb-5">Enter your credentials to access your account</p>
             <div class="row">
                 <div class="col-lg-6 col-md-6 mb-3">

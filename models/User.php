@@ -17,6 +17,10 @@
             $sql=self::connections()->query("INSERT INTO users values('','$nom' , '$prenom','$email','$password')");
             return $sql;
         }
+        public static function getEmail($email){
+            $sql = self::connections()->query("SELECT * FROM users WHERE email='$email'");
+            return $sql->rowCount();
+        }
 
         public static function login($email,$password){
             $log=self::connections()->query("SELECT * FROM users WHERE email='$email' and password='$password'");
@@ -38,6 +42,7 @@
             $sql=self::connections()->query("DELETE FROM `users` WHERE id='$id'"); 
             return $sql;
         }
+        
         
 
     }

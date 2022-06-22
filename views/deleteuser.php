@@ -3,8 +3,6 @@
         $del=new UserController();
         $del->deleteUser();
     }
-    if (isset($_SESSION['user'])) {
-        Redirect::to('index');
-    }
+    
    
 ?>

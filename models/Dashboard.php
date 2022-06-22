@@ -14,5 +14,9 @@
             $sql=self::connections()->query("SELECT * FROM product");
             return $sql->rowCount();
         }
+        public static function getContact(){
+            $sql = self::connections()->query("SELECT * FROM contact");
+            return $sql->rowCount();
+        }
     }
 ?>

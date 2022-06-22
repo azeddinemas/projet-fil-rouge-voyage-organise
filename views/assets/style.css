@@ -36,7 +36,7 @@ header #toggel {
     display: none;
 }
 
-@media (max-width: 817.60px) {
+@media (max-width: 854.60px) {
     header #toggel {
         display: block;
     }

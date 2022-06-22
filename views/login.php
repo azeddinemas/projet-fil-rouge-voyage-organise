@@ -1,6 +1,7 @@
 <?php
     $obj = new UserController();
     $obj->auth();
+    $obj->remember();
     if (isset($_SESSION['user'])) {
         Redirect::to('index');
     }
@@ -14,15 +15,15 @@
             <hr>
             <h2 class="text-center">Sign In</h2>
             <div class="text-center"><?php include 'views/includs/alerts.php';?></div>
-            <?= $_COOKIE['password'] ?? ''?>
+            <?= $_COOKIE['fake'] ?? ''?>
             <p class="text-center mb-4">Enter your credentials to access your account</p>
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" value="<?= $_POST['email'] ?? ''?>" class="form-control" placeholder="Enter your email" >
+                <input type="email" name="email" value="<?= $_POST['email'] ?? $_COOKIE['email'] ?? ''?>" class="form-control" placeholder="Enter your email" >
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password">
+                <input type="password" name="password" class="form-control" value="<?= $_COOKIE['password'] ?? ''?>" placeholder="Enter your password">
             </div>
             <div class="mb-3">
                 <input type="checkbox" name="remember">

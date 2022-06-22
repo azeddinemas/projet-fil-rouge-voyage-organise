@@ -3,10 +3,9 @@
     $rowuser = $obj->rowUser();
     $rowvoyage = $obj->rowProduct();
     $rowres = $obj->rowReserv();
+    $rowcontact = $obj->rowContact();
 ?>
 <?php include 'views/includs/sidebar.php';?>
-                <!--end sidebar-->
-                <!--start Dashboard-->
                 <div class="container-fluid">
                     <div class="row mt-5">
                         <div class="col-md col-sm-6 p-2">
@@ -23,13 +22,13 @@
                                 <p class="text-end fw-bold fs-5"><?= $rowvoyage?></p>
                             </div>
                         </div>
-                        <!-- <div class="col-md col-sm-6 p-2">
+                        <div class="col-md col-sm-6 p-2">
                             <div class="p-2 text-white" style="background: #FF8303;border-radius: 6px;">
-                                <i class="bi bi-currency-dollar fs-3"></i>
-                                <p>Payments</p>
-                                <p class="text-end fw-bold fs-5">DHS 556,000</p>
+                                <i class="bi bi-envelope-open fs-3"></i>
+                                <p>Contact</p>
+                                <p class="text-end fw-bold fs-5"><?= $rowcontact?></p>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-md col-sm-6 p-2">
                             <div class="p-2 text-white" style="background: linear-gradient(90deg, rgb(168, 163, 218) 0%, rgb(252, 166, 38) 100%);;border-radius: 6px;">
                                 <i class="bi bi-person fs-3"></i>

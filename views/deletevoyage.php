@@ -3,8 +3,6 @@
         $del=new ProductController();
         $del->deleteProduct();
     }
-    if (isset($_SESSION['user'])) {
-        Redirect::to('index');
-    }
+  
    
 ?>

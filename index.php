@@ -4,7 +4,7 @@
     require_once('controllers/HomeController.php');
 
     $home = new HomeController();
-    $pages=['admin','dashboard','index','client','payment','voyage','reservation','login','signup','addvoyage','updatevoyage','updateuser','deletevoyage','deleteuser','addreserve','updatereserv','deletereserv','logoutadmin','logoutuser'];
+    $pages=['admin','dashboard','index','client','contact','voyage','reservation','login','signup','deleteuser','updateuser','addvoyage','updatevoyage','deletevoyage','addreserve','addreserv','updatereserv','deletereserv','logoutadmin','logoutuser'];
 
     if (isset($_GET['page'])) {
         if (in_array($_GET['page'],$pages)) {

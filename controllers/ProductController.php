@@ -19,9 +19,6 @@
                 $result=Product::add($_POST['localisation'],$_POST['prix'],$_POST['promotion'],$_POST['description'],$file_name);
                 
                 if ($result) {
-                  
-
-
                     Session::set('success','voyage Ajouté');
                     Redirect::to('voyage');
                 }else 

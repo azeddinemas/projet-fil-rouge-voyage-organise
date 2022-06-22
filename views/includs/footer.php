@@ -6,5 +6,6 @@
             duration: 3000,
         });
     </script>
+    <script src="views/assets/js/delete.js"></script>
 </body>
 </html>

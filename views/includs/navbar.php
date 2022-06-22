@@ -13,7 +13,12 @@
             <a href="#services" class="text-dark">services</a>
             <a href="#review" class="text-dark">review</a>
             <a href="#contact" class="text-dark">contact</a>
+            <?php if (isset($_SESSION['user'])) :?>
+            <a href="<?php BASE_URL?>logoutuser" class="btn btn-outline-dark">Déconnexion</a>
+            <?php else :?>
             <a href="<?php BASE_URL ?>login" class="btn rounded-3 text-white border-bottom-0" style="background-color: #F79F1F;">Se connecter</a>
+            <?php endif;?>
+            <?php  ?>
         </div>
     </nav>
 </header>

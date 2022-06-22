@@ -23,7 +23,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">promotion</label>
-                            <input type="text" name="promotion" placeholder="prix précédent" class="form-control">
+                            <input type="text" name="promotion" placeholder="prix précédent facultatif" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">description</label>
