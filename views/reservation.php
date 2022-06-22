@@ -30,6 +30,7 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
+                            <script src="views/assets/js/sweetalert.js"></script>
                             <tbody class="bg-white">
                                 <?php
                                     foreach ($products as $product){?>
@@ -48,7 +49,7 @@
                                             </form>
                                             <form method="POST" action="<?php BASE_URL?>deletereserv" class="m-1">
                                                 <input type="hidden" name="id" value="<?php echo $product[0]?>">
-                                                <button onclick="return deleterow()" class="btn btn-outline-danger">Delete</button>
+                                                <button class="btn btn-outline-danger">Delete</button>
                                             </form>
                                         </div>
                                     </td>
