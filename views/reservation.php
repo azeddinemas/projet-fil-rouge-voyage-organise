@@ -49,7 +49,7 @@
                                             </form>
                                             <form method="POST" action="<?php BASE_URL?>deletereserv" class="m-1">
                                                 <input type="hidden" name="id" value="<?php echo $product[0]?>">
-                                                <button class="btn btn-outline-danger">Delete</button>
+                                                <button onclick="return deleterow()" class="btn btn-outline-danger">Delete</button>
                                             </form>
                                         </div>
                                     </td>
