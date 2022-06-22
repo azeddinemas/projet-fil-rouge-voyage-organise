@@ -18,7 +18,6 @@
             <?php else :?>
             <a href="<?php BASE_URL ?>login" class="btn rounded-3 text-white border-bottom-0" style="background-color: #F79F1F;">Se connecter</a>
             <?php endif;?>
-            <?php  ?>
         </div>
     </nav>
 </header>

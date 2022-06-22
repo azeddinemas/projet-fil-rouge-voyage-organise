@@ -12,8 +12,8 @@
             $home->index($page);
         }else
             include('views/includs/404.php');
-        }else{
-            $home->index('index');}
+    }else{
+        $home->index('index');}
 
     require_once './views/includs/footer.php';
 ?>
