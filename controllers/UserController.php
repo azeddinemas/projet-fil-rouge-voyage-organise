@@ -49,12 +49,12 @@ class UserController
             $password = $this->Checkinput($_POST['password']);
          
             $passwordh = sha1($password);
-
             $log = User::login($email, $passwordh);
             $row = $log->rowCount();
             $fetch = $log->fetch();
             if ($row == 1) {
                 $_SESSION['user'] = $fetch['prenom'];
+                $_SESSION['nom'] = $fetch['nom'];
                 Redirect::to('index');
                 
             } else

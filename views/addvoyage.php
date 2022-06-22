@@ -1,7 +1,7 @@
 <?php 
     if (isset($_POST['submit'])) {
-        $newuser = new ProductController();
-        $result=$newuser->addProduct();
+        $newuser = new VoyageController();
+        $result=$newuser->addvoyage();
     }
 ?>
 <?php include 'views/includs/sidebar.php'; ?>

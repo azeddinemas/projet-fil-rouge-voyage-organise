@@ -1,5 +1,5 @@
 <?php
-    class Product extends DB{
+    class voyage extends DB{
         public $id;
         public $localisation;
         public $prix;

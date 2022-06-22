@@ -7,8 +7,8 @@
         $newuser = new ReserveController();
         $result=$newuser->addReserv();
     }
-    $data = new ProductController();
-    $products = $data->getAllProduit();
+    $data = new VoyageController();
+    $products = $data->getAllvoyage();
 ?>
 <?php include 'views/includs/navbar.php';?>
 <div class="container">
@@ -27,12 +27,12 @@
                         </div>
                         <div class="form-group">
                             <label for="">lastname</label>
-                            <input type="text" name="nom" placeholder="nom" class="form-control" required>
+                            <input type="text" name="nom" value="<?= $_SESSION['nom'] ?? ''?>" placeholder="nom" class="form-control" required>
                             <div class="invalid-feedback">Please choose a last name.</div>
                         </div>
                         <div class="form-group">
                             <label for="">first name</label>
-                            <input type="text" name="prenom" placeholder="prenom" class="form-control" required>
+                            <input type="text" name="prenom" value="<?= $_SESSION['user'] ?? ''?>" placeholder="prenom" class="form-control" required>
                             <div class="invalid-feedback">Please choose a first name.</div>
                         </div>
                         <div class="form-group">

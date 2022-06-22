@@ -1,13 +1,12 @@
 <?php
-    $data = new ProductController();
-    $products=$data->getAllProduit(); 
+    $data = new VoyageController();
+    $products=$data->getAllvoyage(); 
 ?>
 <?php include 'views/includs/sidebar.php';?>
-                <!-- start client -->
                 <div style="width: 98%; margin: auto;" class="container-fluid">
                     <div class="row mt-4">
                         <div class="col-md d-flex justify-content-between">
-                            <div class="">
+                            <div width>
                                 <h3>Voyager List</h3>
                             </div>
                             <?php include 'views/includs/alerts.php'; ?>
@@ -33,11 +32,11 @@
                                 <?php
                                     foreach ($products as $product){?>
                                 <tr class="align-middle">        
-                                    <th class="w-25"><img src="views/assets/img/<?= $product[5]?>" class="rounded align-items-center w-25" ></th>
+                                    <th style="width: 100px;"><img src="views/assets/img/<?= $product[5]?>" class="rounded align-items-center w-100" ></th>
                                     <td><?= $product[1]?></td>
                                     <td><?= $product[2]?></td>
                                     <td><?= $product[3]?></td>
-                                    <td><?= $product[4]?></td>
+                                    <td class="text-wrap"><?= $product[4]?></td>
                                     <td>
                                         <div class="d-flex flex-row">
                                             <form method="POST" action="<?php BASE_URL?>updatevoyage" class="m-1">

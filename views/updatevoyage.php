@@ -1,13 +1,13 @@
 <?php
     if (isset($_POST['id'])) {
-        $data = new ProductController();
-        $foo = $data->getOneProduct();
+        $data = new VoyageController();
+        $foo = $data->getOnevoyage();
     }else 
         Redirect::to('voyage');
     
     if (isset($_POST['submit'])) {
-        $newuser = new ProductController();
-        $newuser->updateProduct();
+        $newuser = new VoyageController();
+        $newuser->updatevoyage();
     }
 ?>
 <?php include 'views/includs/sidebar.php';?>

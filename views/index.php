@@ -3,8 +3,8 @@
     $obj = new contactController();
     $obj->addContact();
     
-    $data = new ProductController();
-    $products = $data->getAllProduit();
+    $data = new VoyageController();
+    $products = $data->getAllvoyage();
 ?>
 <main style="background-color: #eee;">
     <?php include 'views/includs/navbar.php'; ?>
@@ -33,7 +33,7 @@
     </main>
     <div class="mt-4" id="packages">
         <h1 class="text-center fw-bolder" style="font-size: 4rem; color: #444;">our <span>Packages</span></h1>
-        <div class="container-fluid row mt-3 p-3 mx-auto">
+        <div class="container-fluid row mt-3 p-3 justify-content-center">
             <?php foreach ($products as $product) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up">
                     <div class="card shadow p-2 mb-5 rounded" style="min-width: 240px;max-height: 500px;">

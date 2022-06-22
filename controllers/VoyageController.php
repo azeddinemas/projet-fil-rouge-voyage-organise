@@ -1,14 +1,14 @@
 <?php
 
 
-    class ProductController{
+    class VoyageController{
 
-        public function getAllProduit(){
-            $users= Product::getAll();
+        public function getAllvoyage(){
+            $users= voyage::getAll();
             return $users;
         }
 
-        public function addProduct(){
+        public function addvoyage(){
 
             if (isset($_POST['submit'])) {
                 $_SESSION['localisation']=$_POST['localisation'];
@@ -16,7 +16,7 @@
                 $file_name = $_FILES['img']['name'];
                 $file_tmp =$_FILES['img']['tmp_name'];
                 move_uploaded_file($file_tmp,"views/assets/img/".$file_name);
-                $result=Product::add($_POST['localisation'],$_POST['prix'],$_POST['promotion'],$_POST['description'],$file_name);
+                $result=voyage::add($_POST['localisation'],$_POST['prix'],$_POST['promotion'],$_POST['description'],$file_name);
                 
                 if ($result) {
                     Session::set('success','voyage Ajouté');
@@ -26,21 +26,21 @@
             }
         }
 
-        public function getOneProduct(){
+        public function getOnevoyage(){
             if (isset($_POST['id'])) { 
-                $dd=Product::getOne($_POST['id']);
+                $dd=voyage::getOne($_POST['id']);
                 return $dd;    
             }   
         }
 
-        public function updateProduct(){
+        public function updatevoyage(){
             if (isset($_POST['submit'])) {
                   
                 $file_name = $_FILES['img']['name'];
                 $file_tmp =$_FILES['img']['tmp_name'];
                 move_uploaded_file($file_tmp,"views/assets/img/".$file_name);
               
-                $result=Product::update($_POST['localisation'],$_POST['prix'],$_POST['promotion'],$_POST['description'],$_FILES['img']['name'],$_POST['id']);
+                $result=voyage::update($_POST['localisation'],$_POST['prix'],$_POST['promotion'],$_POST['description'],$_FILES['img']['name'],$_POST['id']);
                 if ($result) {
                     Session::set('success','Voyage Modifié');
                     Redirect::to('voyage');
@@ -49,9 +49,9 @@
             }
         }
 
-        public function deleteProduct(){
+        public function deletevoyage(){
             if (isset($_POST['id'])) {
-                $result=Product::delete($_POST['id']);
+                $result=voyage::delete($_POST['id']);
                 if ($result) {
                     Session::set('success','voyage supprimé');
                     Redirect::to('voyage');

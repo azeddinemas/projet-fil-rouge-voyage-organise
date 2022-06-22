@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST['id'])){
-        $del=new ProductController();
-        $del->deleteProduct();
+        $del=new VoyageController();
+        $del->deletevoyage();
     }
   
    

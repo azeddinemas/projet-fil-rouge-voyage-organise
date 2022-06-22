@@ -23,15 +23,17 @@
                                 <tr style="color: #acacac;">      
                                     <th scope="col">nom</th>
                                     <th scope="col">prenom</th>
-                                    <th scope="col">email</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">password</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <?php foreach($users as $user){ ?>
                                 <tr class="align-middle">
                                     <th scope="row"><?php echo $user['nom']?></th>
-                                    <td><?php echo $user['prenom']?></td>
-                                    <td><?php echo $user['email']?></td> 
+                                    <td><?= $user['prenom']?></td>
+                                    <td><?= $user['email']?></td> 
+                                    <td><?= $user['password']?></td> 
                                     <td class="d-flex flex-row justify-content-end">
                                         <form method="POST" action="<?php BASE_URL?>deleteuser" class="m-1">
                                             <input type="hidden" name="id" value="<?php echo $user['id']?>">
