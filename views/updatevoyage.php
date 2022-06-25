@@ -21,7 +21,7 @@
                     <form method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="hidden" name="id" value="<?=$foo['id']?>">
-                            <label for="">Localisation</label>
+                            <label for="">destination</label>
                             <input type="text" name="localisation" placeholder="localisation" value="<?= $foo['localisation']?>" class="form-control">
                         </div>
                         <div class="form-group">
@@ -41,7 +41,6 @@
                             <div>
                                 <input type="file" name="img" class="form-control" >
                             </div>
-
                         </div>                   
                         <div class="form-group mt-2">
                             <button type="submit" name="submit" class="btn btn-outline-dark">validé</button>

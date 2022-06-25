@@ -21,7 +21,7 @@
                             <thead>
                                 <tr style="color: #acacac;">
                                     <th scope="col">images</th>
-                                    <th scope="col">localisation</th>
+                                    <th scope="col">destination</th>
                                     <th scope="col">prix</th>
                                     <th scope="col">promotion</th>
                                     <th scope="col">description</th>

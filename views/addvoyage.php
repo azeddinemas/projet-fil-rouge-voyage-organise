@@ -14,8 +14,8 @@
                     <a href="<?php echo BASE_URL;?>voyage" class="btn btn-sm btn-info m-2"><i class="fas fa-home text-white"></i></a>
                     <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                         <div class="form-group">
-                            <label for="">localisation</label>
-                            <input type="text" name="localisation" placeholder="nom" class="form-control" required>
+                            <label for="">destination</label>
+                            <input type="text" name="localisation" placeholder="destination" class="form-control" required>
                             <div class="valid-feedback">Looks good!</div>
                         </div>
                         <div class="form-group">

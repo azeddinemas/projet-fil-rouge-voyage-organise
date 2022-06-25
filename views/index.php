@@ -164,22 +164,22 @@
             <form method="POST">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 mt-3" data-aos="fade-up">
-                        <input type="text" name="nom" placeholder="Entrer votre name" class="form-control shadow">
+                        <input type="text" name="nom" placeholder="Entrer votre name" class="form-control shadow" required>
                     </div>
                     <div class="mt-3 col" data-aos="fade-up">
-                        <input type="email" name="email" placeholder="E-mail" class="form-control shadow">
+                        <input type="email" name="email" placeholder="E-mail" class="form-control shadow" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 mt-3" data-aos="fade-up">
-                        <input type="text" placeholder="Entrer votre number" class="form-control shadow">
+                        <input type="text" placeholder="Entrer votre number" class="form-control shadow" required>
                     </div>
                     <div class="mt-3 col" data-aos="fade-up">
-                        <input type="text" name="subject" placeholder="Subject" class="form-control shadow">
+                        <input type="text" name="subject" placeholder="Subject" class="form-control shadow" required>
                     </div>
                 </div>
                 <div class="my-3" data-aos="fade-up">
-                    <textarea name="message" rows="9" placeholder="your message" class="form-control shadow"></textarea>
+                    <textarea name="message" rows="9" placeholder="your message" required class="form-control shadow"></textarea>
                 </div>
                 <div class="text-center my-5">
                     <button type="submit" class="btn text-white shadow text-nowrap" name="submit" style="background-color: #F79F1F;">send message</button>

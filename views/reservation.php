@@ -40,7 +40,7 @@
                                     <td><?= $product[3]?></td>
                                     <td><?= $product[4]?></td>
                                     <td><?= $product[5]?></td>
-                                    <td><?= $product[6]?></td>
+                                    <td class="text-nowrap"><?= $product[6]?></td>
                                     <td>
                                         <div class="d-flex flex-row justify-content-end">
                                             <form method="POST" action="<?php BASE_URL?>updatereserv" class="m-1">
