@@ -32,10 +32,6 @@
                             <label for="">email</label>
                             <input type="email" name="email" placeholder="E-mail" value="<?= $foo['email']?>" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="">password</label>
-                            <input type="text" name="password" class="form-control" placeholder="password" value="<?= $foo['password']?>" id="">
-                        </div>                   
                         <div class="form-group mt-2">
                             <button type="submit" name="submit" class="btn btn-outline-dark">validé</button>
                         </div>

@@ -3,8 +3,8 @@
         Redirect::to('index');
     }
 ?>
-<main class="container-fluid bg-light" style="background-color: #eee;">
-    <div class="row">
+<main class="container-fluid bg-white">
+    <div class="row d-flex flex-nowrap">
         <input type="checkbox" id="menu">
         <div style="background: #ededed;" id="sid" class="col-lg-2 col-md-3 col-sm-5 col-8 text-center">
             <label for="menu" id="label" class="btn float-end"><i class="bi bi-arrow-left-circle fs-3"></i></label>
@@ -47,7 +47,7 @@
         </div>
         <div class="col">
             <div class="row">
-                <div class="col-md d-flex justify-content-between shadow-lg">
+                <div class="col-md d-flex justify-content-between" style="background-color: #ededed;">
                     <label class="btn" style="font-size: x-large;" for="menu"><i class="bi bi-arrow-right-circle"></i></label>
                     <form class="d-flex my-2">
                         <input class="me-2" type="search" id="myInput" onkeyup="myFunction()" placeholder="Search...     🔍">

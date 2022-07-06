@@ -4,7 +4,7 @@
 ?>
 <?php include 'views/includs/sidebar.php';?>
                 <!-- start client -->
-                <div style="width: 98%; margin: auto;" class="container-fluid">
+                <div style="width: 98%; margin: auto;">
                     <div class="row mt-4">
                         <div class="col-md d-flex justify-content-between">
                             <div class="">

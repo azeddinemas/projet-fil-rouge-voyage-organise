@@ -33,8 +33,8 @@
 
         }
 
-        public static function update($nom,$prenom,$email,$password,$id){
-            $sql=self::connections()->query("UPDATE users SET nom='$nom',prenom='$prenom',email='$email',password='$password' WHERE id='$id'");
+        public static function update($nom,$prenom,$email,$id){
+            $sql=self::connections()->query("UPDATE users SET nom='$nom',prenom='$prenom',email='$email' WHERE id='$id'");
             return $sql;
         }
 
